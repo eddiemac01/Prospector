@@ -137,8 +137,8 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 827460508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -236,7 +236,17 @@ MonoBehaviour:
   deckXML: {fileID: 4900000, guid: c76312a0fb08948699e1abf935e4a957, type: 3}
   layout: {fileID: 0}
   layoutXML: {fileID: 4900000, guid: 61f3f05951a2f4d98b35bddbc7549908, type: 3}
+  layoutCenter: {x: 0, y: 0, z: 0}
+  xOffset: 3
+  yOffset: -2.5
+  layoutAnchor: {fileID: 0}
+  target: {fileID: 0}
+  tableau: []
+  discardPile: []
   drawPile: []
+  chain: 0
+  scoreRun: 0
+  score: 0
 --- !u!114 &827460516
 MonoBehaviour:
   m_ObjectHideFlags: 0

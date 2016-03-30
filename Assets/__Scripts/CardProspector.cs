@@ -21,4 +21,10 @@ public class CardProspector : Card {
 	public int					layoutID;
 	//the SlotDef class stores information pulled in from the LayoutXML <slot>
 	public SlotDef				slotDef;
+
+	//this allows the card to react to being clicked
+	override public void OnMouseUpAsButton() {
+		Prospector.S.CardClicked (this);
+		base.OnMouseUpAsButton ();
+	}
 }
