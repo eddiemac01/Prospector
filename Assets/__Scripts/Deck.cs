@@ -21,9 +21,9 @@ public class Deck : MonoBehaviour {
 	// Prefabs
 	public GameObject prefabSprite;
 	public GameObject prefabCard;
-
+	
 	public bool _____________________;
-
+	
 	public PT_XMLReader					xmlr;
 	// add from p 569
 	public List<string>					cardNames;
@@ -32,8 +32,8 @@ public class Deck : MonoBehaviour {
 	public List<CardDefinition>			cardDefs;
 	public Transform					deckAnchor;
 	public Dictionary<string, Sprite>	dictSuits;
-
-
+	
+	
 	// called by Prospector when it is ready
 	public void InitDeck(string deckXMLText) {
 		// from page 576
@@ -56,14 +56,14 @@ public class Deck : MonoBehaviour {
 		ReadDeck (deckXMLText);
 		MakeCards();
 	}
-
-
+	
+	
 	// ReadDeck parses the XML file passed to it into Card Definitions
 	public void ReadDeck(string deckXMLText)
 	{
 		xmlr = new PT_XMLReader ();
 		xmlr.Parse (deckXMLText);
-
+		
 		// print a test line
 		string s = "xml[0] decorator [0] ";
 		s += "type=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("type");
@@ -129,7 +129,7 @@ public class Deck : MonoBehaviour {
 	public CardDefinition GetCardDefinitionByRank(int rnk) {
 		foreach(CardDefinition cd in cardDefs) {
 			if (cd.rank == rnk) {
-					return(cd);
+				return(cd);
 			}
 		} // foreach
 		return (null);
@@ -262,31 +262,31 @@ public class Deck : MonoBehaviour {
 			}
 		}//foreach	
 		return (null);  // couldn't find the sprite (should never reach this line)
-	 }// getFace 
-	 
-	 
-	 // Shuffle the cards in the Deck
-	 // parameter is of type ref, so that we are working with the actual list, not copy
-	 // oCards - o indicates out??? 
-	 static public void Shuffle(ref List<Card> oCards){
-	 	List<Card> tCards = new List<Card>();
-	 	int ndx;
-	 	
-	 	// while there are still cards in the original list
-	 	// draw a card at random from the list of cards
-	 	// put it in temporary list
-	 	// remove from original list
-	 	while (oCards.Count > 0) {
-	 		ndx = Random.Range (0, oCards.Count);
-	 		tCards.Add (oCards[ndx]);
-	 		oCards.RemoveAt(ndx);
-	 	}
-	 	
-	 	
-	 	//when done, move the temporary list to the original list
-	 	// since it's a ref parameter, the original is changed
-	 	//MAGIC!
-	 	oCards = tCards;
-	 }
+	}// getFace 
+	
+	
+	// Shuffle the cards in the Deck
+	// parameter is of type ref, so that we are working with the actual list, not copy
+	// oCards - o indicates out??? 
+	static public void Shuffle(ref List<Card> oCards){
+		List<Card> tCards = new List<Card>();
+		int ndx;
+		
+		// while there are still cards in the original list
+		// draw a card at random from the list of cards
+		// put it in temporary list
+		// remove from original list
+		while (oCards.Count > 0) {
+			ndx = Random.Range (0, oCards.Count);
+			tCards.Add (oCards[ndx]);
+			oCards.RemoveAt(ndx);
+		}
+		
+		
+		//when done, move the temporary list to the original list
+		// since it's a ref parameter, the original is changed
+		//MAGIC!
+		oCards = tCards;
+	}
 	
 } // Deck class
