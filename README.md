@@ -1,2 +1,2 @@
-# Prospector
-Gibson's Prospector Solitaire
+# Bartok-base
+Gibson's Prospector Solitaire (Gliozzi build)
